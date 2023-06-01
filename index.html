@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link href="./style.css" rel="stylesheet">
+</head> 
+<body>
+    <div class="outer-container">
+        <h1 style="color: rgb(98, 69, 204);">Temperature <span class="sub">Converter</span></h1>
+    <div class="container">
+        <div class="input">
+            <label class="lab">Celsius</label><br>
+            <input type="number" value="0" id="celsius" class="inp">
+        </div>
+        <div class="output">
+            <label class="labe">Fahrenheit</label><br>
+            <input type="number" value="32" id="fahrenheit" class="inp">
+        </div>
+    </div>
+</div>
+
+<script>
+    var celsius = document.getElementById("celsius");
+    var fahrenheit = document.getElementById("fahrenheit");
+
+    celsius.addEventListener('input',function(){
+        let c = this.value;
+        let f = (c * 9/5) + 32 ;
+        if(Number.isInteger(f)){
+            f = f.toFixed(4);
+        }
+        fahrenheit.value = f;
+
+    });
+
+    fahrenheit.addEventListener('input',function(){
+        console.log("fahrenheit changed");
+        let f = this.value;
+        let c = (f - 32) * 5/9 ;
+        if(!Number.isInteger(c)){
+            c = c.toFixed(4);
+        }
+        celsius.value = c;
+
+    });
+</script>
+</body>
+</html>
